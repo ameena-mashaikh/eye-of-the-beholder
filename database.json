@@ -1,0 +1,1397 @@
+{
+    "users": [{"id":1,"fullName":"Gwennie Whitmore","email":"gwhitmore0@tamu.edu"},
+    {"id":2,"fullName":"Ardith Strickland","email":"astrickland1@dion.ne.jp"},
+    {"id":3,"fullName":"Cate Pinard","email":"cpinard2@npr.org"}
+    ],
+    "eyeColor": [
+        {
+            "id": 1,
+            "color": "Brown"
+        },
+        {
+            "id": 2,
+            "color": "Blue"
+        },
+        {
+            "id": 3,
+            "color": "Hazel"
+        },
+        {
+            "id": 4,
+            "color": "Green"
+        }
+    ],
+    "undertone": [
+        {
+            "id": 1,
+            "tone": "Warm"
+        },
+        {
+            "id": 2,
+            "tone": "Cool"
+        },
+        {
+            "id": 3,
+            "tone": "Neutral"
+        }
+    ],
+    "colorCategory": [
+        {
+            "id": 1,
+            "color": "Blues"
+        },
+        {
+            "id": 2,
+            "color": "Purples"
+        },
+        {
+            "id": 3,
+            "color": "Greens"
+        },
+        {
+            "id": 4,
+            "color": "Reds"
+        },
+        {
+            "id": 5,
+            "color": "Oranges"
+        },
+        {
+            "id": 6,
+            "color": "Yellows"
+        },
+        {
+            "id": 7,
+            "color": "Browns"
+        },
+        {
+            "id": 8,
+            "color": "White"
+        },
+        {
+            "id": 9,
+            "color": "Black"
+        }
+    ], 
+    "eyeshadowColors": [
+        {
+            "id": 1,
+            "name": "Cornflower",
+            "colorCategoryId": 1,
+            "toneId": 3
+        },
+        {
+            "id": 2,
+            "name": "Turquoise",
+            "colorCategoryId": 1,
+            "toneId": 2
+        },
+        {
+            "id": 3,
+            "name": "Sky Blue",
+            "colorCategoryId": 1,
+            "toneId": 2
+        },
+        {
+            "id": 4,
+            "name": "Royal Blue",
+            "colorCategoryId": 1,
+            "toneId": 1
+        },
+        {
+            "id": 5,
+            "name": "Cobalt Blue",
+            "colorCategoryId": 1,
+            "toneId": 2
+        },
+        {
+            "id": 6,
+            "name": "Periwinkle",
+            "colorCategoryId": 1,
+            "toneId": 1
+        },
+        {
+            "id": 7,
+            "name": "Amethyst",
+            "colorCategoryId": 2,
+            "toneId": 3
+        },
+        {
+            "id": 8,
+            "name": "African Violet",
+            "colorCategoryId": 2,
+            "toneId": 1
+        },
+        {
+            "id": 9,
+            "name": "Eggplant",
+            "colorCategoryId": 2,
+            "toneId": 2
+        },
+        {
+            "id": 10,
+            "name": "Iris",
+            "colorCategoryId": 2,
+            "toneId": 2
+        },
+        {
+            "id": 11,
+            "name": "Lavender",
+            "colorCategoryId": 2,
+            "toneId": 2
+        },
+        {
+            "id": 12,
+            "name": "Plum",
+            "colorCategoryId": 2,
+            "toneId": 1
+        },
+        {
+            "id": 13,
+            "name": "Mauve",
+            "colorCategoryId": 2,
+            "toneId": 1
+        },
+        {
+            "id": 14,
+            "name": "Black Raspberry",
+            "colorCategoryId": 2,
+            "toneId": 1
+        },
+        {
+            "id": 15,
+            "name": "Emerald",
+            "colorCategoryId": 3,
+            "toneId": 3
+        },
+        {
+            "id": 16,
+            "name": "Teal",
+            "colorCategoryId": 3,
+            "toneId": 2
+        },
+        {
+            "id": 17,
+            "name": "Seafoam",
+            "colorCategoryId": 3,
+            "toneId": 2
+        },
+        {
+            "id": 18,
+            "name": "Aquamarine",
+            "colorCategoryId": 3,
+            "toneId": 2
+        },
+        {
+            "id": 19,
+            "name": "Army",
+            "colorCategoryId": 3,
+            "toneId": 1
+        },
+        {
+            "id": 20,
+            "name": "Lime",
+            "colorCategoryId": 3,
+            "toneId": 1
+        },
+        {
+            "id": 21,
+            "name": "Sage",
+            "colorCategoryId": 3,
+            "toneId": 1
+        },
+        {
+            "id": 22,
+            "name": "Olive",
+            "colorCategoryId": 3,
+            "toneId": 1
+        },
+        {
+            "id": 23,
+            "name": "Crimson",
+            "colorCategoryId": 4,
+            "toneId": 3
+        },
+        {
+            "id": 24,
+            "name": "Grapefruit",
+            "colorCategoryId": 4,
+            "toneId": 2
+        },
+        {
+            "id": 25,
+            "name": "Wine",
+            "colorCategoryId": 4,
+            "toneId": 2
+        },
+        {
+            "id": 26,
+            "name": "Raspberry",
+            "colorCategoryId": 4,
+            "toneId": 2
+        },
+        {
+            "id": 27,
+            "name": "Rose",
+            "colorCategoryId": 4,
+            "toneId": 2
+        },
+        {
+            "id": 28,
+            "name": "Cayenne",
+            "colorCategoryId": 4,
+            "toneId": 1
+        },
+        {
+            "id": 29,
+            "name": "Salmon",
+            "colorCategoryId": 4,
+            "toneId": 1
+        },
+        {
+            "id": 30,
+            "name": "Fire Engine",
+            "colorCategoryId": 4,
+            "toneId": 1
+        },
+        {
+            "id": 31,
+            "name": "Rust",
+            "colorCategoryId": 4,
+            "toneId": 1
+        },
+        {
+            "id": 32,
+            "name": "Tiger",
+            "colorCategoryId": 5,
+            "toneId": 3
+        },
+        {
+            "id": 33,
+            "name": "Butterscotch",
+            "colorCategoryId": 5,
+            "toneId": 2
+        },
+        {
+            "id": 34,
+            "name": "Topaz",
+            "colorCategoryId": 5,
+            "toneId": 2
+        },
+        {
+            "id": 35,
+            "name": "Cantalope",
+            "colorCategoryId": 5,
+            "toneId": 2
+        },
+        {
+            "id": 36,
+            "name": "Burnt Orange",
+            "colorCategoryId": 5,
+            "toneId": 1
+        },
+        {
+            "id": 37,
+            "name": "Rust",
+            "colorCategoryId": 5,
+            "toneId": 1
+        },
+        {
+            "id": 38,
+            "name": "Coral",
+            "colorCategoryId": 5,
+            "toneId": 1
+        },
+        {
+            "id": 39,
+            "name": "Lemon",
+            "colorCategoryId": 6,
+            "toneId": 3
+        },
+        {
+            "id": 40,
+            "name": "Golden Rod",
+            "colorCategoryId": 6,
+            "toneId": 2
+        },
+        {
+            "id": 41,
+            "name": "Cream",
+            "colorCategoryId": 6,
+            "toneId": 2
+        },
+        {
+            "id": 42,
+            "name": "Honey",
+            "colorCategoryId": 6,
+            "toneId": 2
+        },
+        {
+            "id": 43,
+            "name": "Mango",
+            "colorCategoryId": 6,
+            "toneId": 1
+        },
+        {
+            "id": 44,
+            "name": "Cheddar",
+            "colorCategoryId": 6,
+            "toneId": 1
+        },
+        {
+            "id": 45,
+            "name": "Mustard",
+            "colorCategoryId": 6,
+            "toneId": 1
+        },
+        {
+            "id": 46,
+            "name": "Coffee",
+            "colorCategoryId": 7,
+            "toneId": 3
+        },
+        {
+            "id": 47,
+            "name": "Bistre",
+            "colorCategoryId": 7,
+            "toneId": 2
+        },
+        {
+            "id": 48,
+            "name": "Coconut",
+            "colorCategoryId": 7,
+            "toneId": 2
+        },
+        {
+            "id": 49,
+            "name": "Ginger",
+            "colorCategoryId": 7,
+            "toneId": 1
+        },
+        {
+            "id": 50,
+            "name": "Sepia",
+            "colorCategoryId": 7,
+            "toneId": 1
+        },
+        {
+            "id": 51,
+            "name": "Daisy",
+            "colorCategoryId": 8,
+            "toneId": 3
+        },
+        {
+            "id": 52,
+            "name": "Powder",
+            "colorCategoryId": 8,
+            "toneId": 2
+        },
+        {
+            "id": 53,
+            "name": "Mercury",
+            "colorCategoryId": 8,
+            "toneId": 2
+        },
+        {
+            "id": 54,
+            "name": "Vivid White",
+            "colorCategoryId": 8,
+            "toneId": 2
+        },
+        {
+            "id": 55,
+            "name": "Stone White",
+            "colorCategoryId": 8,
+            "toneId": 1
+        },
+        {
+            "id": 56,
+            "name": "Rose White",
+            "colorCategoryId": 8,
+            "toneId": 1
+        },
+        {
+            "id": 57,
+            "name": "Rice",
+            "colorCategoryId": 8,
+            "toneId": 1
+        },
+        {
+            "id": 58,
+            "name": "Rich Black",
+            "colorCategoryId": 9,
+            "toneId": 3
+        },
+        {
+            "id": 59,
+            "name": "Stout",
+            "colorCategoryId": 9,
+            "toneId": 1
+        },
+        {
+            "id": 60,
+            "name": "Frost Black",
+            "colorCategoryId": 9,
+            "toneId": 2
+        }
+    ],
+    "eyeshadowEyeColor": [
+        {
+            "id": 1,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 1
+        },
+        {
+            "id": 2,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 2
+        },        
+        {
+            "id": 3,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 3
+        },        
+        {
+            "id": 4,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 4
+        },        
+        {
+            "id": 5,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 5
+        },        
+        {
+            "id": 6,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 6
+        },        
+        {
+            "id": 7,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 7
+        },        
+        {
+            "id": 8,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 8
+        },        
+        {
+            "id": 9,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 9
+        },        
+        {
+            "id": 10,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 10
+        },        
+        {
+            "id": 11,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 11
+        },        
+        {
+            "id": 12,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 12
+        },        
+        {
+            "id": 13,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 13
+        },        
+        {
+            "id": 14,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 14
+        },        
+        {
+            "id": 15,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 15
+        },        
+        {
+            "id": 16,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 16
+        },        
+        {
+            "id": 17,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 17
+        },        
+        {
+            "id": 18,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 18
+        },        
+        {
+            "id": 19,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 19
+        },        
+        {
+            "id": 20,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 20
+        },        
+        {
+            "id": 21,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 21
+        },        
+        {
+            "id": 22,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 22
+        },        
+        {
+            "id": 23,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 23
+        },        
+        {
+            "id": 24,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 24
+        },        
+        {
+            "id": 25,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 25
+        },        
+        {
+            "id": 26,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 26
+        },        
+        {
+            "id": 27,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 27
+        },        
+        {
+            "id": 28,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 28
+        },        
+        {
+            "id": 29,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 29
+        },        
+        {
+            "id": 30,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 30
+        },        
+        {
+            "id": 31,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 31
+        },        
+        {
+            "id": 32,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 32
+        },        
+        {
+            "id": 33,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 33
+        },        
+        {
+            "id": 34,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 34
+        },        
+        {
+            "id": 35,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 35
+        },
+        {
+            "id": 36,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 36
+        },
+        {
+            "id": 37,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 37
+        },
+        {
+            "id": 38,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 38
+        },
+        {
+            "id": 39,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 39
+        },
+        {
+            "id": 40,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 40
+        },
+        {
+            "id": 41,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 41
+        },
+        {
+            "id": 42,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 42
+        },
+        {
+            "id": 43,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 43
+        },
+        {
+            "id": 44,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 44
+        },
+        {
+            "id": 45,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 45
+        },
+        {
+            "id": 46,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 46
+        },
+        {
+            "id": 47,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 47
+        },
+        {
+            "id": 48,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 48
+        },
+        {
+            "id": 49,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 49
+        },
+        {
+            "id": 50,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 50
+        },
+        {
+            "id": 51,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 51
+        },
+        {
+            "id": 52,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 52
+        },
+        {
+            "id": 53,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 53
+        },
+        {
+            "id": 54,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 54
+        },
+        {
+            "id": 55,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 55
+        },
+        {
+            "id": 56,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 56
+        },
+        {
+            "id": 57,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 57
+        },
+        {
+            "id": 58,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 58
+        },
+        {
+            "id": 59,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 59
+        },
+        {
+            "id": 60,
+            "eyeColorId": 1,
+            "eyeShadowColorId": 60
+        },
+        {
+            "id": 61,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 1
+        },
+        {
+            "id": 62,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 4
+        },
+        {
+            "id": 63,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 5
+        },
+        {
+            "id": 64,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 7
+        },
+        {
+            "id": 65,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 11
+        },
+        {
+            "id": 66,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 13
+        },
+        {
+            "id": 67,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 15
+        },
+        {
+            "id": 68,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 17
+        },
+        {
+            "id": 69,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 20
+        },
+        {
+            "id": 70,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 21
+        },
+        {
+            "id": 71,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 23
+        },
+        {
+            "id": 72,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 23
+        },
+        {
+            "id": 73,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 24
+        },
+        {
+            "id": 74,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 25
+        },
+        {
+            "id": 75,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 26
+        },
+        {
+            "id": 76,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 27
+        },
+        {
+            "id": 77,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 29
+        },
+        {
+            "id": 78,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 31
+        },
+        {
+            "id": 79,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 32
+        },
+        {
+            "id": 80,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 33
+        },
+        {
+            "id": 81,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 34
+        },
+        {
+            "id": 82,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 35
+        },
+        {
+            "id": 83,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 36
+        },
+        {
+            "id": 84,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 38
+        },
+        {
+            "id": 85,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 39
+        },
+        {
+            "id": 86,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 41
+        },
+        {
+            "id": 87,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 46
+        },
+        {
+            "id": 88,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 47
+        },
+        {
+            "id": 89,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 48
+        },
+        {
+            "id": 90,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 49
+        },
+        {
+            "id": 91,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 50
+        },
+        {
+            "id": 92,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 51
+        },
+        {
+            "id": 93,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 52
+        },
+        {
+            "id": 94,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 53
+        },
+        {
+            "id": 95,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 54
+        },
+        {
+            "id": 96,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 55
+        },
+        {
+            "id": 97,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 56
+        },
+        {
+            "id": 98,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 57
+        },
+        {
+            "id": 99,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 58
+        },
+        {
+            "id": 100,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 59
+        },
+        {
+            "id": 101,
+            "eyeColorId": 2,
+            "eyeShadowColorId": 60
+        },
+        {
+            "id": 102,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 1
+        },
+        {
+            "id": 103,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 3
+        },
+        {
+            "id": 104,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 6
+        },
+        {
+            "id": 105,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 7
+        },
+        {
+            "id": 106,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 8
+        },
+        {
+            "id": 107,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 9
+        },
+        {
+            "id": 108,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 11
+        },
+        {
+            "id": 109,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 13
+        },
+        {
+            "id": 110,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 14
+        },
+        {
+            "id": 111,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 15
+        },
+        {
+            "id": 112,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 18
+        },
+        {
+            "id": 113,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 23
+        },
+        {
+            "id": 114,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 25
+        },
+        {
+            "id": 115,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 26
+        },
+        {
+            "id": 116,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 28
+        },
+        {
+            "id": 117,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 30
+        },
+        {
+            "id": 118,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 31
+        },
+        {
+            "id": 119,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 33
+        },
+        {
+            "id": 120,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 34
+        },
+        {
+            "id": 121,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 36
+        },
+        {
+            "id": 122,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 40
+        },
+        {
+            "id": 123,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 42
+        },
+        {
+            "id": 124,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 43
+        },
+        {
+            "id": 125,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 44
+        },
+        {
+            "id": 126,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 45
+        },
+        {
+            "id": 127,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 46
+        },
+        {
+            "id": 128,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 47
+        },
+        {
+            "id": 129,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 48
+        },
+        {
+            "id": 130,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 49
+        },
+        {
+            "id": 131,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 50
+        },
+        {
+            "id": 132,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 51
+        },
+        {
+            "id": 133,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 52
+        },
+        {
+            "id": 134,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 53
+        },
+        {
+            "id": 135,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 54
+        },
+        {
+            "id": 136,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 55
+        },
+        {
+            "id": 137,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 56
+        },
+        {
+            "id": 138,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 57
+        },
+        {
+            "id": 139,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 58
+        },
+        {
+            "id": 140,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 59
+        },
+        {
+            "id": 141,
+            "eyeColorId": 3,
+            "eyeShadowColorId": 60
+        },
+        {
+            "id": 142,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 1
+        },
+        {
+            "id": 143,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 2
+        },
+        {
+            "id": 144,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 6
+        },
+        {
+            "id": 145,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 7
+        },
+        {
+            "id": 146,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 8
+        },
+        {
+            "id": 147,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 9
+        },
+        {
+            "id": 148,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 10
+        },
+        {
+            "id": 149,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 11
+        },
+        {
+            "id": 150,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 12
+        },
+        {
+            "id": 151,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 13
+        },
+        {
+            "id": 152,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 14
+        },
+        {
+            "id": 153,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 15
+        },
+        {
+            "id": 154,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 16
+        },
+        {
+            "id": 155,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 18
+        },
+        {
+            "id": 156,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 19
+        },
+        {
+            "id": 157,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 22
+        },
+        {
+            "id": 158,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 23
+        },
+        {
+            "id": 159,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 24
+        },
+        {
+            "id": 160,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 25
+        },
+        {
+            "id": 161,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 27
+        },
+        {
+            "id": 162,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 29
+        },
+        {
+            "id": 163,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 31
+        },
+        {
+            "id": 164,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 32
+        },
+        {
+            "id": 165,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 38
+        },
+        {
+            "id": 166,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 39
+        },
+        {
+            "id": 167,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 41
+        },
+        {
+            "id": 168,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 43
+        },
+        {
+            "id": 169,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 46
+        },
+        {
+            "id": 170,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 47
+        },
+        {
+            "id": 171,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 48
+        },
+        {
+            "id": 172,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 49
+        },
+        {
+            "id": 173,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 50
+        },
+        {
+            "id": 174,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 51
+        },
+        {
+            "id": 175,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 52
+        },
+        {
+            "id": 176,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 53
+        },
+        {
+            "id": 177,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 54
+        },
+        {
+            "id": 178,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 55
+        },
+        {
+            "id": 179,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 56
+        },
+        {
+            "id": 180,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 57
+        },
+        {
+            "id": 181,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 58
+        },
+        {
+            "id": 182,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 59
+        },
+        {
+            "id": 183,
+            "eyeColorId": 4,
+            "eyeShadowColorId": 60
+        }  
+    ],
+    "featuresSelection": [
+        {
+            "id": 1,
+            "eyeColorId": 1,
+            "toneId": 2,
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "eyeColorId": 3,
+            "toneId": 1,
+            "userId": 2
+        },
+        {
+            "id": 3,
+            "eyeColorId": 2,
+            "toneId": 3,
+            "userId": 3
+        }
+    ],
+    "colorsBasedOnSelections": [
+        {
+            "id": 1,
+            "eyeshadowEyeColorId": 11,
+            "featuresSelectionId": 1
+        },
+        {
+            "id": 2,
+            "eyeshadowEyeColorId": 43,
+            "featuresSelectionId": 1
+        },
+        {
+            "id": 3,
+            "eyeshadowEyeColorId": 116,
+            "featuresSelectionId": 2
+        },
+        {
+            "id": 4,
+            "eyeshadowEyeColorId": 137,
+            "featuresSelectionId": 3
+        }
+    ]
+}
