@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { Authorized } from "./views/Authorized"
-// import { ApplicationViews } from "./views/ApplicationViews"
+import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
@@ -16,7 +16,7 @@ export const App = () => {
 			<Authorized>
 				<>
 					<NavBar />
-					{/* <ApplicationViews /> */}
+					 <ApplicationViews /> 
 				</>
 			</Authorized>
 
