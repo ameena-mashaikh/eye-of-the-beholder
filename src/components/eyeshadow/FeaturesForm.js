@@ -22,10 +22,7 @@ export const FeaturesForm = () => {
 
     const [eyeshadowEyeColor, setEyeshadowEyeColor] = useState([])
 
-    const [colorsBasedOnSelections, updateColorsBasedOnSelections] = useState({
-        "eyeshadowEyeColorId": 0,
-        "featuresSelectionId": 0
-    })
+    const [colorsBasedOnSelections, updateColorsBasedOnSelections] = useState([])
 
     const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
 
@@ -135,9 +132,14 @@ export const FeaturesForm = () => {
 
     const eyeshadowSaveButtonClick = (event) => {
         event.preventDefault()
-        const colorsAndFeaturesToSendToAPI = {
-            eyeshadowEyeColorId: parseInt(colorsBasedOnSelections.eyeshadowEyeColorId),
-            featuresSelectionId: parseInt(features.id)
+
+
+
+       
+
+    const colorsAndFeaturesToSendToAPI = {
+        eyeshadowEyeColorId: colorsBasedOnSelections.map((eyeshadow) => eyeshadow.eyeshadowEyeColorId),
+        //featuresSelectionId: features.map((feature) => feature.id)
         }
         return fetch(`http://localhost:8088/colorsBasedOnSelections`, {
             method: "POST",
@@ -153,8 +155,6 @@ export const FeaturesForm = () => {
     }
 
 
-
-    
 
 
 
@@ -178,16 +178,32 @@ export const FeaturesForm = () => {
                     if (eye.eyeshadowColor.colorCategoryId === category.id)
                     {
                         
-                        html.push(<label htmlFor="eyeshadowColor"><input 
+                        html.push(<label htmlFor="eyeshadowColor"><input
+
                         type = "checkbox" 
                         key = {`eyeshadowEyeColor--${eye?.id}`}
-                        value = {eye?.id} 
-                        
+                        value = {parseInt(eye.id)} 
+                       
                             onChange={(event) => {
-                                const copy = {...colorsBasedOnSelections}
-                                copy.eyeshadowEyeColorId = event.target.value
-                                updateColorsBasedOnSelections(copy)
-                            }}/>
+
+                                if (event.target.checked){ 
+                                    
+                                    updateColorsBasedOnSelections([
+                                        ...colorsBasedOnSelections, 
+                                        {
+                                            eyeshadowEyeColorId: parseInt(event.target.value),
+                                        }
+                                    ])
+
+                                }
+                                
+                                else {
+                                    updateColorsBasedOnSelections(colorsBasedOnSelections.filter((selection) => selection.eyeshadowEyeColorId !== eye.id))
+                                }
+
+                                }
+                            }
+                            />
                             {eye.eyeshadowColor?.name}
                             </label>)
                         
@@ -201,7 +217,7 @@ export const FeaturesForm = () => {
             )
         }
         )
-            html.push(<div><button onClick = {(clickEvent) => {eyeshadowSaveButtonClick(clickEvent);}} className="btn btn-primary">
+            html.push(<div><button value = {features.id} id = "btn" onClick = {(clickEvent) => {eyeshadowSaveButtonClick(clickEvent);}} className="btn btn-primary">
                     Submit Eyeshadows
                 </button></div>)
     }
