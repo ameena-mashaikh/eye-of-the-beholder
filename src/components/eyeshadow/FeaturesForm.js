@@ -14,6 +14,8 @@ export const FeaturesForm = () => {
         "toneId": 0
     })
 
+    const [featuresData, updateFeaturesData] = useState([])
+
 
 
     const [colorCategory, setColorCategory] = useState([])
@@ -24,8 +26,14 @@ export const FeaturesForm = () => {
 
     const [colorsBasedOnSelections, updateColorsBasedOnSelections] = useState([])
 
+
+
+
     const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
 
+    const [selectedEyeshadows, updateSelectedEyeShadows] = useState(new Set())
+
+    const [colorAndFeatureId, updateColorAndFeatureId] = useState(0)
 
     const [showEyeshadows, setShowEyeshadows] = useState(false)
 
@@ -35,14 +43,17 @@ export const FeaturesForm = () => {
     const eyeUserObject = JSON.parse(localEyeUser)
 
 
-    
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/eyeColors`)
+    const getEyeColors = ()=> {
+        fetch(`http://localhost:8088/eyeColors`)
             .then(response => response.json())
             .then((eyeColorsArray) => {
                 setEyeColors(eyeColorsArray)
             })
+    }
+    useEffect(
+        () => {
+            getEyeColors()
+            
         }, []
     )
     
@@ -76,15 +87,28 @@ export const FeaturesForm = () => {
                 })
             }, []
             )
+
+            useEffect(
+                () => {
+                    fetch(`http://localhost:8088/featuresSelections`)
+                    .then(response => response.json())
+                    .then((featuresArray) => {
+                        updateFeaturesData(featuresArray)
+                    })
+                }, [updateFeatures]
+                )
             
-            
-        useEffect(
-            () => {
-                fetch(`http://localhost:8088/eyeshadowEyeColors?_expand=eyeColor&_expand=eyeshadowColor`)
+        
+        const getEyeShadowEyeColors = () => {
+            fetch(`http://localhost:8088/eyeshadowEyeColors?_expand=eyeColor&_expand=eyeshadowColor`)
                 .then(response => response.json())
                 .then((data) => {
                     setEyeshadowEyeColor(data)
                 })
+        }
+        useEffect(
+            () => {
+               getEyeShadowEyeColors()
             }, []
             )
         
@@ -112,8 +136,8 @@ export const FeaturesForm = () => {
             toneId: parseInt(features.toneId)
         }
 
+        
         setShowEyeshadows(true)
-
 
         return fetch(`http://localhost:8088/featuresSelections`, {
             method: "POST",
@@ -123,35 +147,44 @@ export const FeaturesForm = () => {
             body: JSON.stringify(featuresToSendToAPI)
         })
         .then(response => response.json())
-        .then(() => { 
-  
+        .then((newFeatureThatWasCreated) => { 
+            updateColorAndFeatureId(newFeatureThatWasCreated.id)
+           
         })
     }
 
 
 
     const eyeshadowSaveButtonClick = (event) => {
-        event.preventDefault()
 
+       event.preventDefault()
 
-
-       
-
-    const colorsAndFeaturesToSendToAPI = {
-        eyeshadowEyeColorId: colorsBasedOnSelections.map((eyeshadow) => eyeshadow.eyeshadowEyeColorId),
-        //featuresSelectionId: features.map((feature) => feature.id)
-        }
-        return fetch(`http://localhost:8088/colorsBasedOnSelections`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(colorsAndFeaturesToSendToAPI)
+       const eyeshadowArray = Array.from(selectedEyeshadows)
+        const promiseArray = eyeshadowArray.map((eyeshadowId) => {
+            const objectToPost = {
+                "eyeshadowEyeColorId": eyeshadowId,
+                "featuresSelectionId": colorAndFeatureId
+            }
+            return fetch(`http://localhost:8088/colorsBasedOnSelections`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(objectToPost)
+            })
+            .then(response => response.json())
         })
-        .then(response => response.json())
-        .then(() => { 
-  
-        })
+        Promise.all(promiseArray)
+        .then((responseArray)=>{
+            setShowEyeshadows(false)
+            updateFeatures({
+                "eyeColorId": 0,
+                "toneId": 0
+            })
+        } )
+
+
+
     }
 
 
@@ -185,23 +218,30 @@ export const FeaturesForm = () => {
                         value = {parseInt(eye.id)} 
                        
                             onChange={(event) => {
-
-                                if (event.target.checked){ 
-                                    
-                                    updateColorsBasedOnSelections([
-                                        ...colorsBasedOnSelections, 
-                                        {
-                                            eyeshadowEyeColorId: parseInt(event.target.value),
-                                        }
-                                    ])
-
+                                const copy = new Set(selectedEyeshadows)
+                                if (copy.has(eye.id)){
+                                    copy.delete(eye.id)
+                                }
+                                else {
+                                    copy.add(eye.id)
                                 }
                                 
-                                else {
-                                    updateColorsBasedOnSelections(colorsBasedOnSelections.filter((selection) => selection.eyeshadowEyeColorId !== eye.id))
-                                }
+                                updateSelectedEyeShadows(copy)
 
-                                }
+                                // if (event.target.checked){ 
+                                    
+                                //     updateColorsBasedOnSelections([
+                                //         ...colorsBasedOnSelections, 
+                                //         {
+                                //             eyeshadowEyeColorId: parseInt(event.target.value),
+                                //         }
+                                //     ])
+                                // }
+
+                                // else {
+                                //     updateColorsBasedOnSelections(colorsBasedOnSelections.filter((selection) => selection.eyeshadowEyeColorId !== eye.id))
+                                // }
+                            }
                             }
                             />
                             {eye.eyeshadowColor?.name}
@@ -245,8 +285,9 @@ export const FeaturesForm = () => {
                     <label htmlFor="eyeColor">Eye Color:</label>
                     <select id = "eyeColor" 
                     required autoFocus
+                    key = {`eyeColor--${eyeColors.id}`}
                     className="form-control"
-                    value={eyeColors.id}
+                    value={features.eyeColorId}
                     onChange={(event) => {
                             const copy = {...features}
                             copy.eyeColorId = parseInt(event.target.value)
@@ -255,7 +296,7 @@ export const FeaturesForm = () => {
                         <option value = "0"> Choose Eye Color</option>        
                         {
                             eyeColors.map(eyeColor => {
-                                return <option value = {eyeColor.id} key = {`eyeColor--${eyeColor.id}`}> {eyeColor.color}</option>
+                                return <option value = {eyeColor.id} > {eyeColor.color}</option>
                             })
                         }
                         </select>
@@ -267,7 +308,8 @@ export const FeaturesForm = () => {
                     <select
                         required autoFocus
                         className="form-control"
-                        value={undertones.id}
+                        key = {`undertone--${undertones.id}`}
+                        value={features.toneId}
                         onChange={(event) => {
                             const copy = {...features}
                             copy.toneId = parseInt(event.target.value)
@@ -277,7 +319,7 @@ export const FeaturesForm = () => {
                         <option value = "0"> Choose Undertone</option>
                         {
                             undertones.map(undertone => {
-                                return <option value = {undertone.id} key = {`undertone--${undertone.id}`}> {undertone.tone}</option>})
+                                return <option value = {undertone.id}> {undertone.tone}</option>})
                             }
                         </select>
                         <section className="link--undertone">
