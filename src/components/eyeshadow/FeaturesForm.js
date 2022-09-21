@@ -59,7 +59,7 @@ export const FeaturesForm = () => {
     
     useEffect(
         () => {
-            fetch(`http://localhost:8088/undertones`)
+            fetch(`http://localhost:8088/tones`)
             .then(response => response.json())
             .then((undertonesArray) => {
                 setUndertones(undertonesArray)
@@ -174,14 +174,14 @@ export const FeaturesForm = () => {
             })
             .then(response => response.json())
         })
-        Promise.all(promiseArray)
-        .then((responseArray)=>{
-            setShowEyeshadows(false)
-            updateFeatures({
-                "eyeColorId": 0,
-                "toneId": 0
-            })
-        } )
+            Promise.all(promiseArray)                                           //promise.all allows to send multiple fetch request at the same time                      
+            .then((responseArray)=>{
+                setShowEyeshadows(false)
+                updateFeatures({
+                    "eyeColorId": 0,
+                    "toneId": 0
+                })
+            } )
 
 
 
@@ -227,20 +227,6 @@ export const FeaturesForm = () => {
                                 }
                                 
                                 updateSelectedEyeShadows(copy)
-
-                                // if (event.target.checked){ 
-                                    
-                                //     updateColorsBasedOnSelections([
-                                //         ...colorsBasedOnSelections, 
-                                //         {
-                                //             eyeshadowEyeColorId: parseInt(event.target.value),
-                                //         }
-                                //     ])
-                                // }
-
-                                // else {
-                                //     updateColorsBasedOnSelections(colorsBasedOnSelections.filter((selection) => selection.eyeshadowEyeColorId !== eye.id))
-                                // }
                             }
                             }
                             />

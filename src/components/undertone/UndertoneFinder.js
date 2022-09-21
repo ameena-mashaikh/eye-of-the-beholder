@@ -10,7 +10,7 @@ export const UndertoneFinder = () => {
             <img src={require('./undertonespng.png')} />
             <section className = "undertone__descriptions">
                 <article className = "warmUndertone__description">
-                    <h3>Warm Undertone</h3>
+                    {/* <h3>Warm Undertone</h3> */}
                     <div></div>
                 </article>
             </section>
