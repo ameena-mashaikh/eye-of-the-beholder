@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-
 export const Account = () => {
 
-    const [account, updateAccount] = useState([])
+    const [profile, updateProfile] = useState({
+        fullName: "",
+        email: ""        
+    })
+    const [users, setUsers] = useState({
+        fullName: "",
+        email: ""        
+    })
+    const [showUpdateProfile, setShowUpdateProfile] = useState(false)
+    
+    
     const [featuresAndEyeshadowSelections, setFeaturesAndEyeshadowSelections] = useState([])
-    const [users, setUsers] = useState([])
-
-
     const [userFeatures, setUserFeature] = useState([])
     const [eyeshadowEyeColors, setEyeshadowEyeColors] = useState([])
     const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
@@ -17,6 +23,7 @@ export const Account = () => {
     const localEyeUser = localStorage.getItem("eye_user")
     const eyeUserObject = JSON.parse(localEyeUser)
 
+    const navigate = useNavigate()
 
     useEffect(
         () => {
@@ -28,10 +35,6 @@ export const Account = () => {
             }, []
         
         )
-
-//http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections
-//http://localhost:8088/eyeshadowColors?_embed=eyeshadowEyeColors
-
 
 
     useEffect(
@@ -55,40 +58,54 @@ export const Account = () => {
                     setFeaturesAndEyeshadowSelections(selectionsArray)
                 })
 
-    }, [])
+        }, [])
+
+
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections`)
+                .then(response => response.json())
+                .then((selectionsArray) => {
+                    setUserFeature(selectionsArray)
+                })
+        }, [])
 
 
 
-    //~Features Selection Attempt with Embed
-    // useEffect(
-    //     () => {
-    //         fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone`)
-    //             .then(response => response.json())
-    //             .then((selectionsArray) => {
-    //                 setUserFeature(selectionsArray)
-    //             })
-    //     }, [])
+    const handleUpdateButtonClick = (event) => {
+        setShowUpdateProfile(true)
+        let html = []
 
-        useEffect(
-            () => {
-                fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections`)
-                    .then(response => response.json())
-                    .then((selectionsArray) => {
-                        setUserFeature(selectionsArray)
-                    })
-            }, [])
+        if(setShowUpdateProfile) {
+            html.push(<>
+            <form className="profile">
+            <h2 className="profile__title">New Service Ticket</h2>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="specialty">Specialty:</label>
+                    <input
+                        required autoFocus
+                        type="text"
+                        className="form-control"
+                        value={users.fullName}
+                        // onChange={
+                        //     (evt) => {
+                        //         // TODO: Update specialty property
+                        //     }
+                        // } 
+                        />
+                </div>
+            </fieldset></form>
+            </>)
+        }
+        return html
 
-
-        //& Use Effect to filter and match return eyeshadowEyeColorId === eyeshadowColor.id 
         
-        // useEffect(
-        //     () => {
 
-        //     })
 
-        // const eyeshadowMatch = (eyeshadowId) => {
-        //     eyeshadowEyeColors.filter((color)=> {if (eyeshadowId.eyeshadowEyeColorId === color.id) {return color.eyeshadowColor.name}})
-        // }
+        
+    }
+
 
 
     return (     
@@ -106,7 +123,9 @@ export const Account = () => {
                             <label htmlFor= "email"> Email: </label>
                             {users.email}
                         </div>
-                        <button className="btn btn-primary">
+                        <button 
+                            onClick={(clickEvent) => handleUpdateButtonClick(clickEvent)}
+                            className="btn btn-primary">
                 Update Information
             </button>
                 </section> 
@@ -116,8 +135,8 @@ export const Account = () => {
                     if (features.userId === eyeUserObject.id)
                     {
                         return (
-                            <section>
-                                <section>
+                            <section className = "features_selected_colors">
+                                <section className = "features_selected">
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
                                     <label htmlFor = "eyeColor"> Eye Color: </label>
@@ -127,10 +146,8 @@ export const Account = () => {
                                         <label htmlFor = "tone"> Undertone: </label>
                                         {features.tone?.tone}
                                 </div>
-                                <button className="btn btn-primary">
-                                Delete Features
-                                </button>
                                 </section>
+                                <section className = "colors_selected">
                                 <div className = "selected_colors">
                                         <h4> Color Selections</h4>
                                         <label htmlFor ="colors"> Saved Colors: </label>
@@ -146,6 +163,12 @@ export const Account = () => {
                                                 
                                         }
                                 </div>
+                                </section>
+                                <button 
+                                    
+                                    className="btn btn-primary">
+                                Delete Selections
+                                </button>
                             </section>
                             )
                         }

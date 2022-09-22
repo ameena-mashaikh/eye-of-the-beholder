@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
 
                 <Route path="eyeshadow_generator" element={  <FeaturesForm/>} />
                 <Route path="undertone_finder" element = { <UndertoneFinder/>} />
-                <Route path="account" element = { <Account/>} />
+                <Route path="profile" element = { <Account/>} />
             </Route>
         </Routes>
     )
