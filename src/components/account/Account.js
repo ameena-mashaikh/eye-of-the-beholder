@@ -10,8 +10,8 @@ export const Account = () => {
 
 
     const [userFeatures, setUserFeature] = useState([])
-    const [eyeshadowEyeColor, setEyeshadowEyeColor] = useState([])
-
+    const [eyeshadowEyeColors, setEyeshadowEyeColors] = useState([])
+    const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
 
 
     const localEyeUser = localStorage.getItem("eye_user")
@@ -23,13 +23,14 @@ export const Account = () => {
             fetch(`http://localhost:8088/eyeshadowEyeColors?_expand=eyeColor&_expand=eyeshadowColor`)
                 .then(response => response.json())
                 .then((data) => {
-                    setEyeshadowEyeColor(data)
+                    setEyeshadowEyeColors(data)
                 })
             }, []
         
         )
 
-
+//http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections
+//http://localhost:8088/eyeshadowColors?_embed=eyeshadowEyeColors
 
 
 
@@ -58,17 +59,36 @@ export const Account = () => {
 
 
 
+    //~Features Selection Attempt with Embed
+    // useEffect(
+    //     () => {
+    //         fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone`)
+    //             .then(response => response.json())
+    //             .then((selectionsArray) => {
+    //                 setUserFeature(selectionsArray)
+    //             })
+    //     }, [])
 
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone`)
-                .then(response => response.json())
-                .then((selectionsArray) => {
-                    setUserFeature(selectionsArray)
-                })
-        }, [])
+        useEffect(
+            () => {
+                fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections`)
+                    .then(response => response.json())
+                    .then((selectionsArray) => {
+                        setUserFeature(selectionsArray)
+                    })
+            }, [])
 
 
+        //& Use Effect to filter and match return eyeshadowEyeColorId === eyeshadowColor.id 
+        
+        // useEffect(
+        //     () => {
+
+        //     })
+
+        // const eyeshadowMatch = (eyeshadowId) => {
+        //     eyeshadowEyeColors.filter((color)=> {if (eyeshadowId.eyeshadowEyeColorId === color.id) {return color.eyeshadowColor.name}})
+        // }
 
 
     return (     
@@ -97,6 +117,7 @@ export const Account = () => {
                     {
                         return (
                             <section>
+                                <section>
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
                                     <label htmlFor = "eyeColor"> Eye Color: </label>
@@ -106,22 +127,26 @@ export const Account = () => {
                                         <label htmlFor = "tone"> Undertone: </label>
                                         {features.tone?.tone}
                                 </div>
+                                <button className="btn btn-primary">
+                                Delete Features
+                                </button>
+                                </section>
                                 <div className = "selected_colors">
                                         <h4> Color Selections</h4>
-                                        <label htmlFor ="colors"> Colors: </label>
+                                        <label htmlFor ="colors"> Saved Colors: </label>
                                         {
-                                            featuresAndEyeshadowSelections.map((selection) => {
-                                                if (selection.featuresSelectionId === features.id) {
-                                                    return (
-                                                        <div>
-
-                                                        </div>
-                                                    )
-                                                }
+                                            features.colorsBasedOnSelections.map((eyeColorShadowId) => {
+                                                return eyeshadowEyeColors.map((color) => {
+                                                    if (eyeColorShadowId.eyeshadowEyeColorId === color.id) {
+                                                        return (<div>{color.eyeshadowColor?.name}</div>)
+                                                    }
+                                                })
                                             })
+                                                
+                                                
                                         }
                                 </div>
-                                </section>
+                            </section>
                             )
                         }
                         
@@ -138,9 +163,7 @@ export const Account = () => {
                 
                 
            
-            <button className="btn btn-primary">
-                Delete Features
-            </button>
+            
     </>
     )
 }
