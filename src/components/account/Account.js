@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./Account.css"
+
 
 export const Account = () => {
 
@@ -48,8 +50,6 @@ export const Account = () => {
             }, []
         )
 
-
-
     useEffect(
         () => {
             fetch(`http://localhost:8088/colorsBasedOnSelections?_expand=featuresSelection&_expand=eyeshadowEyeColor`)
@@ -61,50 +61,54 @@ export const Account = () => {
         }, [])
 
 
-    useEffect(
-        () => {
+//& Get all of the Features
+
+        const getAllFeaturesColors = () => {
             fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections`)
                 .then(response => response.json())
                 .then((selectionsArray) => {
                     setUserFeature(selectionsArray)
                 })
-        }, [])
-
-
-
-    const handleUpdateButtonClick = (event) => {
-        setShowUpdateProfile(true)
-        let html = []
-
-        if(setShowUpdateProfile) {
-            html.push(<>
-            <form className="profile">
-            <h2 className="profile__title">New Service Ticket</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="specialty">Specialty:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        value={users.fullName}
-                        // onChange={
-                        //     (evt) => {
-                        //         // TODO: Update specialty property
-                        //     }
-                        // } 
-                        />
-                </div>
-            </fieldset></form>
-            </>)
         }
-        return html
 
+
+    useEffect(
+        () => 
+            getAllFeaturesColors()
+           
+        , [])
+
+
+
+
+    const deleteButton = (id) => {
+        return <button onClick={() => {
+            //     selections.map((selection) => {
+            //     fetch(`http://localhost:8088/colorsBasedOnSelections/${selection.id}`, {
+            //     method: "DELETE",
+            // })
+            
         
-
-
+            //     .then(() => { 
+                    
+            //         navigate("/eyeshadow_generator")
+                
+            //     })
+            
         
+        fetch(`http://localhost:8088/featuresSelections/${id}`, {
+            method: "DELETE",
+            header: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(getAllFeaturesColors)
+
+        }} 
+        className = "featuresDelete"> Delete Colors</button>
     }
+        
+
 
 
 
@@ -123,11 +127,11 @@ export const Account = () => {
                             <label htmlFor= "email"> Email: </label>
                             {users.email}
                         </div>
-                        <button 
-                            onClick={(clickEvent) => handleUpdateButtonClick(clickEvent)}
+                        {/* <button 
+                            // onClick={(clickEvent) => handleUpdateButtonClick(clickEvent)}
                             className="btn btn-primary">
                 Update Information
-            </button>
+            </button> */}
                 </section> 
 
                 {
@@ -135,7 +139,7 @@ export const Account = () => {
                     if (features.userId === eyeUserObject.id)
                     {
                         return (
-                            <section className = "features_selected_colors">
+                            <section className = "features-colors">
                                 <section className = "features_selected">
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
@@ -150,12 +154,14 @@ export const Account = () => {
                                 <section className = "colors_selected">
                                 <div className = "selected_colors">
                                         <h4> Color Selections</h4>
-                                        <label htmlFor ="colors"> Saved Colors: </label>
+                                       
                                         {
                                             features.colorsBasedOnSelections.map((eyeColorShadowId) => {
                                                 return eyeshadowEyeColors.map((color) => {
                                                     if (eyeColorShadowId.eyeshadowEyeColorId === color.id) {
-                                                        return (<div>{color.eyeshadowColor?.name}</div>)
+                                                        return (<div>{color.eyeshadowColor?.name}
+                                                            
+                                                        </div>)
                                                     }
                                                 })
                                             })
@@ -163,13 +169,9 @@ export const Account = () => {
                                                 
                                         }
                                 </div>
-                                </section>
-                                <button 
-                                    
-                                    className="btn btn-primary">
-                                Delete Selections
-                                </button>
-                            </section>
+                                        </section>
+                                                        {deleteButton(features.id)}
+                                        </section>
                             )
                         }
                         
@@ -177,10 +179,6 @@ export const Account = () => {
 
                 })
                 }
-
-
-
-
                 </article>  
             </>
                 
