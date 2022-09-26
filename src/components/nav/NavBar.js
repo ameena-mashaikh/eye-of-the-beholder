@@ -19,7 +19,7 @@ export const NavBar = () => {
                 <Link className="navbar__link" to="/undertone_finder">Undertone Finder</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/account">Account</Link>
+                <Link className="navbar__link" to="/profile">Profile</Link>
             </li>
             {
                 localStorage.getItem("eye_user")

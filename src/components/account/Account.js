@@ -1,36 +1,42 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./Account.css"
 
 
 export const Account = () => {
 
-    const [account, updateAccount] = useState([])
+    const [profile, updateProfile] = useState({
+        fullName: "",
+        email: ""        
+    })
+    const [users, setUsers] = useState({
+        fullName: "",
+        email: ""        
+    })
+    const [showUpdateProfile, setShowUpdateProfile] = useState(false)
+    
+    
     const [featuresAndEyeshadowSelections, setFeaturesAndEyeshadowSelections] = useState([])
-    const [users, setUsers] = useState([])
-
-
     const [userFeatures, setUserFeature] = useState([])
-    const [eyeshadowEyeColor, setEyeshadowEyeColor] = useState([])
-
+    const [eyeshadowEyeColors, setEyeshadowEyeColors] = useState([])
+    const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
 
 
     const localEyeUser = localStorage.getItem("eye_user")
     const eyeUserObject = JSON.parse(localEyeUser)
 
+    const navigate = useNavigate()
 
     useEffect(
         () => {
             fetch(`http://localhost:8088/eyeshadowEyeColors?_expand=eyeColor&_expand=eyeshadowColor`)
                 .then(response => response.json())
                 .then((data) => {
-                    setEyeshadowEyeColor(data)
+                    setEyeshadowEyeColors(data)
                 })
             }, []
         
         )
-
-
-
 
 
     useEffect(
@@ -44,8 +50,6 @@ export const Account = () => {
             }, []
         )
 
-
-
     useEffect(
         () => {
             fetch(`http://localhost:8088/colorsBasedOnSelections?_expand=featuresSelection&_expand=eyeshadowEyeColor`)
@@ -54,19 +58,56 @@ export const Account = () => {
                     setFeaturesAndEyeshadowSelections(selectionsArray)
                 })
 
-    }, [])
+        }, [])
 
 
+//& Get all of the Features
 
-
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone`)
+        const getAllFeaturesColors = () => {
+            fetch(`http://localhost:8088/featuresSelections?_expand=eyeColor&_expand=tone&_embed=colorsBasedOnSelections`)
                 .then(response => response.json())
                 .then((selectionsArray) => {
                     setUserFeature(selectionsArray)
                 })
-        }, [])
+        }
+
+
+    useEffect(
+        () => 
+            getAllFeaturesColors()
+           
+        , [])
+
+
+
+
+    const deleteButton = (id) => {
+        return <button onClick={() => {
+            //     selections.map((selection) => {
+            //     fetch(`http://localhost:8088/colorsBasedOnSelections/${selection.id}`, {
+            //     method: "DELETE",
+            // })
+            
+        
+            //     .then(() => { 
+                    
+            //         navigate("/eyeshadow_generator")
+                
+            //     })
+            
+        
+        fetch(`http://localhost:8088/featuresSelections/${id}`, {
+            method: "DELETE",
+            header: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(getAllFeaturesColors)
+
+        }} 
+        className = "featuresDelete"> Delete Colors</button>
+    }
+        
 
 
 
@@ -86,9 +127,11 @@ export const Account = () => {
                             <label htmlFor= "email"> Email: </label>
                             {users.email}
                         </div>
-                        <button className="btn btn-primary">
+                        {/* <button 
+                            // onClick={(clickEvent) => handleUpdateButtonClick(clickEvent)}
+                            className="btn btn-primary">
                 Update Information
-            </button>
+            </button> */}
                 </section> 
 
                 {
@@ -96,7 +139,8 @@ export const Account = () => {
                     if (features.userId === eyeUserObject.id)
                     {
                         return (
-                            <section>
+                            <section className = "features-colors">
+                                <section className = "features_selected">
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
                                     <label htmlFor = "eyeColor"> Eye Color: </label>
@@ -106,22 +150,28 @@ export const Account = () => {
                                         <label htmlFor = "tone"> Undertone: </label>
                                         {features.tone?.tone}
                                 </div>
+                                </section>
+                                <section className = "colors_selected">
                                 <div className = "selected_colors">
                                         <h4> Color Selections</h4>
-                                        <label htmlFor ="colors"> Colors: </label>
+                                       
                                         {
-                                            featuresAndEyeshadowSelections.map((selection) => {
-                                                if (selection.featuresSelectionId === features.id) {
-                                                    return (
-                                                        <div>
-
-                                                        </div>
-                                                    )
-                                                }
+                                            features.colorsBasedOnSelections.map((eyeColorShadowId) => {
+                                                return eyeshadowEyeColors.map((color) => {
+                                                    if (eyeColorShadowId.eyeshadowEyeColorId === color.id) {
+                                                        return (<div>{color.eyeshadowColor?.name}
+                                                            
+                                                        </div>)
+                                                    }
+                                                })
                                             })
+                                                
+                                                
                                         }
                                 </div>
-                                </section>
+                                        </section>
+                                                        {deleteButton(features.id)}
+                                        </section>
                             )
                         }
                         
@@ -129,18 +179,12 @@ export const Account = () => {
 
                 })
                 }
-
-
-
-
                 </article>  
             </>
                 
                 
            
-            <button className="btn btn-primary">
-                Delete Features
-            </button>
+            
     </>
     )
 }
