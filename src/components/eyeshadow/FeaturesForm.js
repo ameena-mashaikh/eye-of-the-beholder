@@ -2,6 +2,7 @@ import { click } from "@testing-library/user-event/dist/click"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import "./FeaturesForm.css"
 
 export const FeaturesForm = () => {
 
@@ -130,6 +131,7 @@ export const FeaturesForm = () => {
     const handleSaveButtonClick = (event) => {
 
         event.preventDefault()
+        
         const featuresToSendToAPI = {
             userId: parseInt(eyeUserObject.id),
             eyeColorId: parseInt(features.eyeColorId),
@@ -211,8 +213,9 @@ export const FeaturesForm = () => {
                     if (eye.eyeshadowColor.colorCategoryId === category.id)
                     {
                         
-                        html.push(<label htmlFor="eyeshadowColor"><input
-
+                        html.push( <span><ul className= "eyeshadow_color"><label htmlFor="eyeshadowColor">
+                         
+                        <input 
                         type = "checkbox" 
                         key = {`eyeshadowEyeColor--${eye?.id}`}
                         value = {parseInt(eye.id)} 
@@ -230,8 +233,12 @@ export const FeaturesForm = () => {
                             }
                             }
                             />
+                            
+                           <img className = "eyeshadow_img" src={eye?.eyeshadowColor?.image} />
                             {eye.eyeshadowColor?.name}
-                            </label>)
+                            </label></ul>
+                           
+                             </span>)
                         
                         
                     }   
