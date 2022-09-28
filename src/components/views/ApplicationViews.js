@@ -1,8 +1,10 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { FeaturesForm } from "../eyeshadow/FeaturesForm"
-import { UndertoneFinder } from "../undertone/UndertoneFinder"
+import { UndertoneFinder } from "../featureFinder/UndertoneFinder"
 import { Account } from "../account/Account"
 import { Homepage } from "../homepage/Homepage"
+import { EyeShape} from "../featureFinder/EyeShape"
+
 
 export const ApplicationViews = () => {
 	return (

@@ -37,11 +37,11 @@ export const UndertoneFinder = () => {
         setShowDiv(true)
 
             undertones.map((undertone) => {
-                if (undertone.veinId === parseInt(value)) {
+                if (undertone.veinId === value) {
                     return <div> You Have a {undertone.tone} Undertone!</div>
                 }
                 else {
-                    return ""
+                    return console.log('not working ;(')
                 }
             })
 }
@@ -49,13 +49,13 @@ export const UndertoneFinder = () => {
     return (
         <section className="undertoneFinder">
             <h2 className="undertoneFinder__title">Undertone Finder</h2>
-            <img src={require('./undetonespngnew.png')} />
+            <img src={require("./undetonespngnew.png")} />
             <section className = "undertone__descriptions">
                 <article className = "Undertone__description">
                     <div>
                         <h3>Find Your Undertone!</h3>
                         <b>Veins</b>
-                            <div>One way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
+                            <div>A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
                             <label htmlFor="vein_label">What are the color of your veins?</label>
                             <select
                                 required autoFocus
@@ -63,7 +63,7 @@ export const UndertoneFinder = () => {
                                 key = {`vein--${veinColor.id}`}
                                 value={veinColor.id}
                                 onChange={(event) => 
-                                    displayUndertone(event, event.target.value)
+                                    {displayUndertone(event, event.target.value)}
                                 }>
                                 <option value = "0">Vein Color</option>
                                 {

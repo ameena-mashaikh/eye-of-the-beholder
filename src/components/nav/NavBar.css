@@ -1,4 +1,4 @@
-.navbar {
+ .navbar {
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
@@ -13,3 +13,13 @@
     margin-left: auto;
 }
 
+
+  
+  .navbar__item {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 5rem;
+    padding: 6px 16px;
+    border-radius: 5px;
+  }

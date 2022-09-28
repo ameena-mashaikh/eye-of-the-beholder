@@ -208,12 +208,12 @@ export const FeaturesForm = () => {
                 </div>
                 </>)
             colorCategory.map(category => {
-                html.push(<h4>{category.color}</h4>)
+                html.push(<div className = "color_categories"><h4>{category.color}</h4></div>)
                 filteredEyeshadows.map(eye => {
                     if (eye.eyeshadowColor.colorCategoryId === category.id)
                     {
                         
-                        html.push( <span><ul className= "eyeshadow_color"><label htmlFor="eyeshadowColor">
+                        html.push( <div className = "color_categories"><ul className= "eyeshadow_color"><label htmlFor="eyeshadowColor">
                          
                         <input 
                         type = "checkbox" 
@@ -238,7 +238,7 @@ export const FeaturesForm = () => {
                             {eye.eyeshadowColor?.name}
                             </label></ul>
                            
-                             </span>)
+                             </div>)
                         
                         
                     }   
