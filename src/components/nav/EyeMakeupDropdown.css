@@ -1,45 +1,48 @@
 
-.services-submenu {
-    width: 145px;
+.eye-makeup-submenu {
+    width: 170px;
     position: absolute;
     top: 43px;
     list-style: none;
-    right: 975px;
-    text-align: center;
+    right: 1328px;
+    text-align: center;    
   }
   
-  .services-submenu li {
+  .eye-makeup-submenu li {
     background: rgb(0, 212, 212);
     cursor: pointer;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
   
-  .services-submenu li a:hover {
+  .eye-makeup-submenu li a:hover {
     background: rgb(27, 46, 46);
     text-align: center;
-    width: 115px
+    
     
   }
   
-  .services-submenu.clicked {
+  .eye-makeup-submenu.clicked {
     display: none;
   }
   
-  .submenu-item {
+  .eye-makeup-submenu-item {
     display: block;
-    width: 10rem;
+    width: 160px;
     height: 100%;
     text-decoration: none;
     color: white;
     padding: 15px;
+    text-align: center;
 
     
   }
 
-  .dropdown_select {
+  .eye_dropdown_select {
     display: flex;
-    margin-left: 15px;
-
+    justify-content: center;
+width: auto;
 
   }
   

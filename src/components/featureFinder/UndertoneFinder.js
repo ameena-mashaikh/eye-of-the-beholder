@@ -32,19 +32,25 @@ export const UndertoneFinder = () => {
     )
 
 
-    const displayUndertone = (event, value) => {
+    const displayUndertone = (value) => {
+            setShowDiv(true)
+           //event.preventDefault()
+            //  undertones.map((undertone) => {
+            //     if (undertone.veinId === value && showDiv === true) {
+            //         return undertone.tone
+                    // (<div className = "undertone_color"> You Have a {undertone.tone} Undertone!</div>)
+                //}
+                // else {
+                    
+                // }
+            //})
 
-        setShowDiv(true)
+            let undertoneMatch = undertones.find((undertone) => undertone.veinId === value)
+                return <div>You Have a {undertoneMatch.tone} Undertone!</div>
 
-            undertones.map((undertone) => {
-                if (undertone.veinId === value) {
-                    return <div> You Have a {undertone.tone} Undertone!</div>
-                }
-                else {
-                    return console.log('not working ;(')
-                }
-            })
-}
+        }
+
+
     
     return (
         <section className="undertoneFinder">
@@ -56,21 +62,34 @@ export const UndertoneFinder = () => {
                         <h3>Find Your Undertone!</h3>
                         <b>Veins</b>
                             <div>A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
+                            
                             <label htmlFor="vein_label">What are the color of your veins?</label>
-                            <select
+                            <div className = "select_option">
+                                <select
                                 required autoFocus
                                 className="form-control"
                                 key = {`vein--${veinColor.id}`}
                                 value={veinColor.id}
-                                onChange={(event) => 
-                                    {displayUndertone(event, event.target.value)}
+                                onChange={(event) => {
+                                    setShowDiv(true)
+                                    const valueParse = parseInt(event.target.value) 
+                                    
+                                    undertones.map((undertone) => {
+                                        if(undertone.veinId === valueParse)
+                                    {return <div>You Have a {undertone.tone} Undertone!</div>}
+                                    })
+                                }
                                 }>
+                                
                                 <option value = "0">Vein Color</option>
                                 {
                                     veinColor.map(vein => {
-                                        return <option value = {vein.id}>{vein.color}</option>})
+                                        return <option value = {vein.id}>{vein.color}</option>
+                                        })
                                     }
+                                
                             </select>
+                            </div>
                     </div>
                 </article>
             </section>
