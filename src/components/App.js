@@ -8,7 +8,9 @@ import "./App.css"
 
 
 export const App = () => {
-	return <Routes>
+	return (
+	<><meta name="viewport" content="width=device-width"></meta>
+	<Routes>
 		<Route path="/login" element={<Login />} />
 		<Route path="/register" element={<Register />} />
 
@@ -21,5 +23,5 @@ export const App = () => {
 			</Authorized>
 
 		} />
-	</Routes>
+	</Routes></>)
 }

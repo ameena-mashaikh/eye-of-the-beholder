@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-
+import { Dropdown } from "./Dropdown"
+import { useState, useEffect } from "react"
+import { EyeMakeupDropdown } from "./EyeMakeupDropdown"
 
 export const NavBar = () => {
-    const localEyeUser = localStorage.getItem("eye_user")
-    const eyeUserObject = JSON.parse(localEyeUser)
+
+    const [dropdown, setDropdown] = useState(false)
+    const [eyeDropdown, setEyeDropdown] = useState(false)
     const navigate = useNavigate()
     
     return (
@@ -12,11 +15,19 @@ export const NavBar = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/home">Homepage</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/eyeshadow_generator">Eyeshadow Color Generator</Link>
+            <li className="navbar__item active"
+                onMouseEnter={() => setEyeDropdown(true)}
+                onMouseLeave={() => setEyeDropdown(false)}
+                >
+                <Link className="navbar__link" to="/eye_makeup">Eye Makeup</Link>
+                {eyeDropdown && <EyeMakeupDropdown/>}
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/undertone_finder">Undertone Finder</Link>
+            <li className="navbar__item active"
+                    onMouseEnter={() => setDropdown(true)}
+                    onMouseLeave={() => setDropdown(false)}
+                >
+                <Link className="navbar__link" to="/feature_finder">Feature Finder</Link>
+                {dropdown && <Dropdown/>}
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/profile">Profile</Link>
