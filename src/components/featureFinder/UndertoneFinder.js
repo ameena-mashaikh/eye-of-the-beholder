@@ -10,6 +10,8 @@ export const UndertoneFinder = () => {
 
     const[showDiv, setShowDiv] = useState(false)
 
+    const[undertoneTone, setUndertoneTone] = useState('');
+
     useEffect(
         () => {
             fetch(`http://localhost:8088/tones`)
@@ -75,8 +77,10 @@ export const UndertoneFinder = () => {
                                     const valueParse = parseInt(event.target.value) 
                                     
                                     undertones.map((undertone) => {
-                                        if(undertone.veinId === valueParse)
-                                    {return <div>You Have a {undertone.tone} Undertone!</div>}
+                                        if(undertone.veinId === valueParse) {
+                                            setShowDiv(false);
+                                            setUndertoneTone(undertone.tone);
+                                        }
                                     })
                                 }
                                 }>
@@ -89,6 +93,7 @@ export const UndertoneFinder = () => {
                                     }
                                 
                             </select>
+                            <div hidden={showDiv}>You Have a {undertoneTone} Undertone!</div>
                             </div>
                     </div>
                 </article>
