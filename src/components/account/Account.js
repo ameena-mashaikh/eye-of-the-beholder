@@ -116,7 +116,7 @@ export const Account = () => {
         <>
             <h2 className="accountForm__title">Account Information</h2> 
             <>
-                <article>
+                <article className = "featuresAndColors">
                     <section className = "user_info">
                         <div className="user_name_email">
                             <h3>User Details</h3>
@@ -127,11 +127,6 @@ export const Account = () => {
                             <label htmlFor= "email"> Email: </label>
                             {users.email}
                         </div>
-                        {/* <button 
-                            // onClick={(clickEvent) => handleUpdateButtonClick(clickEvent)}
-                            className="btn btn-primary">
-                Update Information
-            </button> */}
                 </section> 
 
                 {
@@ -139,7 +134,7 @@ export const Account = () => {
                     if (features.userId === eyeUserObject.id)
                     {
                         return (
-                            <section className = "features-colors">
+                            <section className = "features_colors">
                                 <section className = "features_selected">
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
@@ -159,7 +154,8 @@ export const Account = () => {
                                             features.colorsBasedOnSelections.map((eyeColorShadowId) => {
                                                 return eyeshadowEyeColors.map((color) => {
                                                     if (eyeColorShadowId.eyeshadowEyeColorId === color.id) {
-                                                        return (<div>{color.eyeshadowColor?.name}
+                                                        return (<div>{color.eyeshadowColor?.name
+                                                            }
                                                             
                                                         </div>)
                                                     }

@@ -38,7 +38,7 @@ export const UndertoneFinder = () => {
     return (
         <section className="undertoneFinder">
             <h2 className="undertoneFinder__title">Undertone Finder</h2>
-            <img src={require("./undetonespngnew.png")} />
+            <img className = "undertoneImg" src={require("./undetonespngnew.png")} />
             <section className = "undertone__descriptions">
                 <article className = "Undertone__description">
                     <div>

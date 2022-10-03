@@ -5,7 +5,7 @@ import { Account } from "../account/Account"
 import { Homepage } from "../homepage/Homepage"
 import { EyeShape} from "../featureFinder/eyeShape/EyeShape"
 import { FaceShape } from "../featureFinder/faceShape/FaceShape"
-
+import { Eyeliner } from "../eyeliner/Eyeliner"
 export const ApplicationViews = () => {
 	return (
         <Routes>
@@ -24,6 +24,8 @@ export const ApplicationViews = () => {
                 <Route path="profile" element = { <Account/>} />
                 <Route path="eyeShape_finder" element = {<EyeShape/>}/>
                 <Route path="faceShape_finder" element = {<FaceShape/>}/>
+                <Route path="eyeliner_generator" element = {<Eyeliner/>}/>
+
 
             </Route>
         </Routes>

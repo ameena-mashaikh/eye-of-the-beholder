@@ -234,8 +234,8 @@ export const FeaturesForm = () => {
                             }
                             />
                             
-                           <img className = "eyeshadow_img" src={eye?.eyeshadowColor?.image} />
                             {eye.eyeshadowColor?.name}
+                           <img className = "eyeshadow_img" src={eye?.eyeshadowColor?.image} />
                             </label></ul>
                            
                              </div>)

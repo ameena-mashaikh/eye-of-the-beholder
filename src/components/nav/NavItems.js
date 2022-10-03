@@ -36,8 +36,8 @@ export const eyesDropdown = [
   },
   {
     id: 3,
-    title: "Eyeliner Styles",
-    path: "./eyeliner_styles",
+    title: "Eyeliner Generator",
+    path: "./eyeliner_generator",
     cName: "eye-makeup-submenu-item",
   }
 ]

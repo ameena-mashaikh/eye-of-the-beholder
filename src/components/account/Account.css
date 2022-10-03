@@ -1,7 +1,23 @@
-.features-colors{
-    background-color: aquamarine;
+div.selected_colors{
+    margin-left: -90px;    
+    
 }
 
 .user_info{
     background-color: darksalmon;
 }
+
+section.features_colors {
+    margin-left: -20px;
+    background-color: aquamarine;
+    
+}
+
+section.user_info {
+    margin-left: -20px
+}
+
+section.features_selected {
+    margin-left: 9px
+}
+

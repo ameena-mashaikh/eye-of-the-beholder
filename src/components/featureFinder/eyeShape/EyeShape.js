@@ -20,7 +20,7 @@ export const EyeShape = () => {
                             </li>
 
                         </ul>
-                        <img src={require("./eyeShapeImg/almond.jpeg")} />
+                        <img className= "image" src={require("./eyeShapeImg/almond.jpeg")} />
                     </section>
                     <section className = "shape__round">
                             <h3 className="shape"> Round Eyes </h3>
@@ -32,7 +32,7 @@ export const EyeShape = () => {
                                     The outer edge of the eye is more circular instead of tapered
                                 </li>
                             </ul>
-                            <img src={require("./eyeShapeImg/round.jpeg")} />
+                            <img className= "image" src={require("./eyeShapeImg/round.jpeg")} />
                         </section>
                         <section className = "shape__upturned">
                             <h3 className="shape"> Upturned Eyes </h3>
@@ -44,7 +44,7 @@ export const EyeShape = () => {
                                     Eye lids are a lot more visible
                                 </li>
                             </ul>
-                            <img src={require("./eyeShapeImg/upturned.jpeg")} />
+                            <img className= "image" src={require("./eyeShapeImg/upturned.jpeg")} />
                         </section>
                         <section className = "shape__downturned">
                             <h3 className="shape"> Downturned Eyes </h3>
@@ -56,7 +56,7 @@ export const EyeShape = () => {
                                     Eyes appear to be more droopy
                                 </li>
                             </ul>
-                            <img src={require("./eyeShapeImg/downturned.jpeg")} />
+                            <img className= "image" src={require("./eyeShapeImg/downturned.jpeg")} />
                         </section>
                         <section className = "shape__monolid">
                             <h3 className="shape"> Monolid Eyes </h3>
@@ -74,7 +74,7 @@ export const EyeShape = () => {
                                     Hooded eyes have a less visible lid and their natural crease has a hidden appearance
                                 </li>
                             </ul>
-                            <img src={require("./eyeShapeImg/hooded.jpeg")} />
+                            <img className= "image" src={require("./eyeShapeImg/hooded.jpeg")} />
                         </section>
 
                         <div className= "eyeshadow__link"> Curious about which eyeshadow suits you best?  <Link to="/eyeshadow_styles">Click Here!</Link> </div>
