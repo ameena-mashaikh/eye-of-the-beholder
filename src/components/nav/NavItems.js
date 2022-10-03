@@ -15,7 +15,7 @@ export const featureDropdown = [
     {
       id: 3,
       title: "Face Shape",
-      path: "./face_shape_finder",
+      path: "./faceShape_finder",
       cName: "submenu-item",
     }
 ]

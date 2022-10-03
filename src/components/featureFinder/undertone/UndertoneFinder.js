@@ -8,7 +8,7 @@ export const UndertoneFinder = () => {
 
     const [undertones, setUndertones] = useState([])
 
-    const[showDiv, setShowDiv] = useState(false)
+    const[showDiv, setShowDiv] = useState(true)
 
     const[undertoneTone, setUndertoneTone] = useState('');
 
@@ -32,25 +32,6 @@ export const UndertoneFinder = () => {
             })
         }, []
     )
-
-
-    const displayUndertone = (value) => {
-            setShowDiv(true)
-           //event.preventDefault()
-            //  undertones.map((undertone) => {
-            //     if (undertone.veinId === value && showDiv === true) {
-            //         return undertone.tone
-                    // (<div className = "undertone_color"> You Have a {undertone.tone} Undertone!</div>)
-                //}
-                // else {
-                    
-                // }
-            //})
-
-            let undertoneMatch = undertones.find((undertone) => undertone.veinId === value)
-                return <div>You Have a {undertoneMatch.tone} Undertone!</div>
-
-        }
 
 
     
@@ -80,6 +61,9 @@ export const UndertoneFinder = () => {
                                         if(undertone.veinId === valueParse) {
                                             setShowDiv(false);
                                             setUndertoneTone(undertone.tone);
+                                        }
+                                        if(valueParse === 0) {
+                                            setShowDiv(true)
                                         }
                                     })
                                 }
