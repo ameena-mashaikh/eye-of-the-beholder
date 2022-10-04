@@ -4,16 +4,13 @@ import { UndertoneFinder } from "../featureFinder/undertone/UndertoneFinder"
 import { Account } from "../account/Account"
 import { Homepage } from "../homepage/Homepage"
 import { EyeShape} from "../featureFinder/eyeShape/EyeShape"
-import { FaceShape } from "../featureFinder/faceShape/FaceShape"
 import { Eyeliner } from "../eyeliner/Eyeliner"
 export const ApplicationViews = () => {
 	return (
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>Eye of the Beholder</h1>
-                    <div>Your Guide To Looking Your Best!</div>
-
+                   
                     <Outlet />
                 </>
             }>
@@ -23,7 +20,6 @@ export const ApplicationViews = () => {
                 <Route path="undertone_finder" element = { <UndertoneFinder/>} />
                 <Route path="profile" element = { <Account/>} />
                 <Route path="eyeShape_finder" element = {<EyeShape/>}/>
-                <Route path="faceShape_finder" element = {<FaceShape/>}/>
                 <Route path="eyeliner_generator" element = {<Eyeliner/>}/>
 
 

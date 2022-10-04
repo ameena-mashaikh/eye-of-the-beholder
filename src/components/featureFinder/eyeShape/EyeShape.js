@@ -77,7 +77,7 @@ export const EyeShape = () => {
                             <img className= "image" src={require("./eyeShapeImg/hooded.jpeg")} />
                         </section>
 
-                        <div className= "eyeshadow__link"> Curious about which eyeshadow suits you best?  <Link to="/eyeshadow_styles">Click Here!</Link> </div>
+                        <div className= "eyeshadow__link"> Curious about which eyeline style suits you best?  <Link to="/eyeliner_generator">Click Here!</Link> </div>
                 </div>
         </div>
     )

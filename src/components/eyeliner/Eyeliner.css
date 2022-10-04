@@ -1,0 +1,33 @@
+
+.eyeShapeFeaturesForm{
+    background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+    color: white
+}
+
+.form-group {
+    width: 15%
+}
+
+.eyeliner_img {
+    width:7%;
+    height: 7%;
+    float: right;
+    margin-right: 80%;
+    margin-top: .5%
+
+}
+
+.eyelinerStyles {
+    margin-top: 4%;
+
+}
+
+.eyelinerSave {
+    margin-top: 2%
+}
+
+.eyeliner_list {
+    margin-left: 40%;
+    width: 60%;
+    margin-top: 5%;
+}

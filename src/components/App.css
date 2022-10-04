@@ -1,5 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url("https://fonts.googleapis.com/css?family=Trirong");
 
 /*Typography
 --------------------------------------------------------------*/
@@ -9,8 +9,8 @@ input,
 select,
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
-  font-size: 14px;
+  font-family: "Trirong", serif;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -19,8 +19,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
-  letter-spacing: 2px;
+  font-family: "Triong", serif;
+  letter-spacing: 1px;
+}
+
+body {
+  background-image: url('./headerAndLogo2/charlotteBeter.png');
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 
 p {
@@ -29,5 +35,10 @@ p {
 
 .title--main {
   margin-block-end: 0;
+}
+
+.slogan {
+  background-color: antiquewhite;
+  width: 30%
 }
 

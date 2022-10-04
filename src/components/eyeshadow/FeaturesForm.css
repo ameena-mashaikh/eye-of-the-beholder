@@ -1,12 +1,50 @@
 .eyeshadow_img {
-    width: 22px;
-    height: 22px;
-    margin-right: 103.5rem;
-    margin-bottom: .5em;
+    width: 1.5%;
+    height: 1.5%;
+    margin-right: 91%;
+    margin-bottom: .5%;
     float: right
 }
 
 .eyeshadow_color {
-    margin-left: -45px;
+    margin-left: -2.5%;
 }
 
+.form-group {
+    width: 15%
+}
+
+.link_undertone {
+    width: 150%;
+    margin-left: 1%
+}
+
+.btn-primary{
+    width: 15%
+}
+
+.btn-eyeshadow{
+    width: 10%
+}
+
+.featuresForm {
+    background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+    color: white;
+    width: 90%;
+    margin-left: 8%;
+    margin-bottom: -10%;
+
+}
+
+.color_categories {
+    margin-left: 45%;
+    width: 120%
+}
+
+.eyeshadow__title {
+    margin-top: 10%
+}
+.color_categories {
+    margin-top: 2%;
+    
+}

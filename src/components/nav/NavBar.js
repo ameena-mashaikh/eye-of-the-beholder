@@ -19,14 +19,14 @@ export const NavBar = () => {
                 onMouseEnter={() => setEyeDropdown(true)}
                 onMouseLeave={() => setEyeDropdown(false)}
                 >
-                <Link className="navbar__link" to="/eye_makeup">Eye Makeup</Link>
+                <label><u>Eye Makeup</u></label>
                 {eyeDropdown && <EyeMakeupDropdown/>}
             </li>
             <li className="navbar__item active"
                     onMouseEnter={() => setDropdown(true)}
                     onMouseLeave={() => setDropdown(false)}
                 >
-                <Link className="navbar__link" to="/feature_finder">Feature Finder</Link>
+                <label><u>Feature Finder</u></label>
                 {dropdown && <Dropdown/>}
             </li>
             <li className="navbar__item active">
@@ -34,7 +34,7 @@ export const NavBar = () => {
             </li>
             {
                 localStorage.getItem("eye_user")
-                    ? <li className="navbar__item navbar__logout">
+                    ? <li className="navbar__item">
                         <Link className="navbar__link" to="" onClick={() => {
                             localStorage.removeItem("eye_user")
                             navigate("/", {replace: true})

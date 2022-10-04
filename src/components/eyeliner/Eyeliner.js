@@ -2,6 +2,7 @@ import { click } from "@testing-library/user-event/dist/click"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import "./Eyeliner.css"
 
 export const Eyeliner = () => {
     const [eyeShapes, setEyeShapes] = useState([])
@@ -143,7 +144,8 @@ export const Eyeliner = () => {
                 html.push(<div className = "eyeliner_styles"><ul className= "eyeliner_list">
                     <label htmlFor="eyeliner">
                     
-                    <input 
+                    <input
+                    className = "eyelinerStyles" 
                     type = "checkbox" 
                     key = {`eyeliner--${liner.id}`}
                     value = {parseInt(liner.id)} 
@@ -172,9 +174,9 @@ export const Eyeliner = () => {
                 
                     }
                     )
-                    html.push(<div><button value = {eyeShapeFeatures.id} id = "btn" onClick = {(clickEvent) => {eyelinerSaveButtonClick(clickEvent);}} className="btn btn-primary">
+                    html.push(<div><center><button value = {eyeShapeFeatures.id} id = "btn" onClick = {(clickEvent) => {eyelinerSaveButtonClick(clickEvent);}} className="btn eyelinerSave">
                 Submit Eyeliner Styles
-                </button></div>)
+                </button></center></div>)
                 }
                
                     
@@ -187,7 +189,8 @@ export const Eyeliner = () => {
 
     return (
         <form className="eyeShapeFeaturesForm">
-            <h2 className="eyeShapeFeaturesForm__title">Eyeliner Generator</h2>
+
+            <center><h2 className="eyeShapeFeaturesForm__title">Eyeliner Generator</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="eyeShape">Eye Shape:</label>
@@ -210,9 +213,9 @@ export const Eyeliner = () => {
                         </select>
                 </div>
                 </fieldset>
-                <button onClick = {(clickEvent) => {handleSaveButtonClick(clickEvent)}} className="btn btn-primary">
+                <button onClick = {(clickEvent) => {handleSaveButtonClick(clickEvent)}} className="btn btn-eyeShape">
                 Submit Eye Shape
-            </button>
+            </button></center>
             {eyelinerSelections()}
                 </form>
     )

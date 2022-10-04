@@ -1,15 +1,15 @@
 
 .services-submenu {
-    width: 145px;
+    width: 10%;
     position: absolute;
-    top: 43px;
+    top: 7.5%;
     list-style: none;
-    right: 975px;
+    right: 40%;
     text-align: center;
   }
   
   .services-submenu li {
-    background: rgb(0, 212, 212);
+    background: #E2E9FF;
     cursor: pointer;
     text-align: center;
   }
@@ -17,7 +17,7 @@
   .services-submenu li a:hover {
     background: rgb(27, 46, 46);
     text-align: center;
-    width: 115px
+    width: auto
     
   }
   
@@ -27,11 +27,11 @@
   
   .submenu-item {
     display: block;
-    width: 10rem;
-    height: 100%;
+    width: auto;
+    height: auto;
     text-decoration: none;
-    color: white;
-    padding: 15px;
+    color: rgb(0, 0, 0);
+    padding: 2%;
 
     
   }

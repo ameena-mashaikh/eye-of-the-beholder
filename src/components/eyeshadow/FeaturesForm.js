@@ -250,7 +250,7 @@ export const FeaturesForm = () => {
             )
         }
         )
-            html.push(<div><button value = {features.id} id = "btn" onClick = {(clickEvent) => {eyeshadowSaveButtonClick(clickEvent);}} className="btn btn-primary">
+            html.push(<div className = "color_categories"><button value = {features.id} id = "btn" onClick = {(clickEvent) => {eyeshadowSaveButtonClick(clickEvent);}} className="btn btn-eyeshadow">
                     Submit Eyeshadows
                 </button></div>)
     }
@@ -272,11 +272,11 @@ export const FeaturesForm = () => {
     
     return (
         <form className="featuresForm">
-            <h2 className="featuresForm__title">Eyeshadow Color Generator</h2>
+           <center> <h2 className="featuresForm__title">Eyeshadow Color Generator</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="eyeColor">Eye Color:</label>
-                    <select id = "eyeColor" 
+                    <select
                     required autoFocus
                     key = {`eyeColor--${eyeColors.id}`}
                     className="form-control"
@@ -315,14 +315,14 @@ export const FeaturesForm = () => {
                                 return <option value = {undertone.id}> {undertone.tone}</option>})
                             }
                         </select>
-                        <section className="link--undertone">
+                        <section className="link_undertone">
                             Need help finding your undertone?   <Link to="/undertone_finder">Click Here!</Link>
                         </section>
                 </div>
             </fieldset>
             <button onClick = {(clickEvent) => {handleSaveButtonClick(clickEvent);}} className="btn btn-primary">
                 Submit Features
-            </button>
+            </button></center>
             {eyeshadowSelections()}
         </form>
     )
