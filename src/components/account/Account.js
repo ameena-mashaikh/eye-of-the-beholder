@@ -152,8 +152,8 @@ export const Account = () => {
 
 
     return (     
-        <>
-            <h2 className="accountForm__title">Account Information</h2> 
+        <div className = "accountInformation">
+            <center> <h2 className="accountForm__title">Account Information</h2> 
             <>
                 <article className = "featuresAndColors">
                     <section className = "user_info">
@@ -175,7 +175,7 @@ export const Account = () => {
                         return (
                             <section className = "features_colors">
                                 <section className = "features_selected">
-                                <div className = "eye_color_feature">
+                                <center><div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
                                     <label htmlFor = "eyeColor"> Your Eye Color: </label>
                                     {features.eyeColor?.color}
@@ -183,11 +183,11 @@ export const Account = () => {
                                 <div className ="undertone_feature">
                                         <label htmlFor = "tone"> Your Undertone: </label>
                                         {features.tone?.tone}
-                                </div>
+                                </div></center>
                                 </section>
                                 <section className = "colors_selected">
                                 <div className = "selected_colors">
-                                        <h4> Color Selections</h4>
+                                       <center> <h4> Color Selections</h4>
                                        
                                         {
                                             features.colorsBasedOnSelections.map((eyeColorShadowId) => {
@@ -200,7 +200,7 @@ export const Account = () => {
                                             })
                                                 
                                                 
-                                        }
+                                        }</center>
                                 </div>
                                         </section>
                                                         {deleteButton(features.id)}
@@ -227,7 +227,6 @@ export const Account = () => {
                                             <label htmlFor = "eyeShape"> Your Eye Shape: </label>
                                             {selected.eyeShape?.shape}
                                         </div>
-
                                         <div className = "eyeliner_style"> 
                                             <h4 className = "eyeliner"> Eyeliner Styles</h4>
                                             {
@@ -254,7 +253,7 @@ export const Account = () => {
                 
            
             
-    </>
+            </center></div>
     )
 }
         

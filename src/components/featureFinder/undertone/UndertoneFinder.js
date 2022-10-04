@@ -36,6 +36,7 @@ export const UndertoneFinder = () => {
 
     
     return (
+        <center>
         <section className="undertoneFinder">
             <h2 className="undertoneFinder__title">Undertone Finder</h2>
             <img className = "undertoneImg" src={require("./undetonespngnew.png")} />
@@ -44,7 +45,7 @@ export const UndertoneFinder = () => {
                     <div>
                         <h3>Find Your Undertone!</h3>
                         <b>Veins</b>
-                            <div>A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
+                            <div className = "undertone_advice">A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
                             
                             <label htmlFor="vein_label">What are the color of your veins?</label>
                             <div className = "select_option">
@@ -77,11 +78,11 @@ export const UndertoneFinder = () => {
                                     }
                                 
                             </select>
-                            <div hidden={showDiv}>You Have a {undertoneTone} Undertone!</div>
+                            <div className = "foundUndertone" hidden={showDiv}>You Have a {undertoneTone} Undertone!</div>
                             </div>
                     </div>
                 </article>
             </section>
-        </section>
+        </section></center>
     )
 }

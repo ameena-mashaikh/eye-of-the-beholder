@@ -1,7 +1,7 @@
 
 .eyeShapeFeaturesForm{
     background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
-    color: white
+    color: white;
 }
 
 .form-group {
@@ -30,4 +30,9 @@
     margin-left: 40%;
     width: 60%;
     margin-top: 5%;
+}
+
+.eyelinerSave {
+    margin-left: 38%;
+    margin-right: -11%;
 }

@@ -1,10 +1,33 @@
 
-.undertoneFinder img {
+.undertoneFinder {
     height: auto;
-    width: 20%;
-    float: right
+    width: 80%;
+    float: right;
+    background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+    color: white;
+    margin-right: 10%
 }
 
 .select_option{
     width: 30rem
+}
+
+.undertoneImg {
+    float: right;
+    width: 30%
+}
+
+.undertone_advice {
+    width: 100%
+}
+
+.select_option{
+    width: 70%;
+    margin-top: 10%;
+}
+
+.foundUndertone {
+    width: 150%;
+    margin-left: -25%;
+    margin-top: 5%
 }

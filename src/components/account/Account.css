@@ -1,15 +1,18 @@
 div.selected_colors{
-    margin-left: -90px;    
+    margin-left: -62%;
+    width: 55%
+        
     
 }
 
 .user_info{
-    background-color: darksalmon;
+    border: 3px dotted #F0F1B1;
+    margin-right: -.5%;
 }
 
 section.features_colors {
-    margin-left: -20px;
-    background-color: aquamarine;
+    margin-right: 13%;
+    border: 3px dotted #CBEEF1;
     
 }
 
@@ -19,5 +22,19 @@ section.user_info {
 
 section.features_selected {
     margin-left: 9px
+}
+
+.accountInformation {
+    background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+    color: white;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.eyeliner_eyeShape {
+    border: 3px dotted #C2F1BF;
+    width: 34%;
+    margin-left: -2%;
+    margin-top: 5%
 }
 

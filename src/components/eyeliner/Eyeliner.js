@@ -212,8 +212,8 @@ export const Eyeliner = () => {
                         }
                         </select>
                 </div>
-                </fieldset>
-                <button onClick = {(clickEvent) => {handleSaveButtonClick(clickEvent)}} className="btn btn-eyeShape">
+                </fieldset></center>
+                <center><button onClick = {(clickEvent) => {handleSaveButtonClick(clickEvent)}} className="btn btn-eyeShape">
                 Submit Eye Shape
             </button></center>
             {eyelinerSelections()}

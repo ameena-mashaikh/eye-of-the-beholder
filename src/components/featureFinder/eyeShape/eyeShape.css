@@ -26,7 +26,21 @@ li {
 }
 
 .eyeshadow__link {
-    margin-right: 450px;
+    margin-right: 5%;
     margin-top: 30px;
 }
+
+.eyeshape {
+    background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+    color: white;
+}
+
+.shape{
+    border: 3px dotted #F1D0E7;
+}
+
+.monolidImg {
+    margin-left: -40%
+}
+
 

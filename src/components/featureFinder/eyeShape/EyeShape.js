@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 export const EyeShape = () => {
     return (
+        <center>
         <div className="eyeshape">
             <h2 className="eyeshape__title">Eye Shape Finder</h2>
                 <h3>Find Your Eye Shape!</h3>
@@ -65,7 +66,7 @@ export const EyeShape = () => {
                                     Monolids are flat and have little to no crease at all for the eyelid
                                 </li>
                             </ul>
-                            <img src={require("./eyeShapeImg/monolid.jpeg")} />
+                            <img className = "monolidImg" src={require("./eyeShapeImg/monolid.jpeg")} />
                         </section>
                         <section className = "shape__hooded">
                             <h3 className="shape"> Hooded Eyes </h3>
@@ -77,8 +78,8 @@ export const EyeShape = () => {
                             <img className= "image" src={require("./eyeShapeImg/hooded.jpeg")} />
                         </section>
 
-                        <div className= "eyeshadow__link"> Curious about which eyeline style suits you best?  <Link to="/eyeliner_generator">Click Here!</Link> </div>
+                        <div className= "eyeshadow__link">  <center> Curious about which eyeline style suits you best?  <Link to="/eyeliner_generator">Click Here!</Link> </center></div>
                 </div>
-        </div>
+        </div></center>
     )
 }
