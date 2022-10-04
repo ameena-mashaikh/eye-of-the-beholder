@@ -20,7 +20,9 @@ export const Account = () => {
     const [userFeatures, setUserFeature] = useState([])
     const [eyeshadowEyeColors, setEyeshadowEyeColors] = useState([])
     const [filteredEyeshadows, setFilteredEyeshadows] = useState([])
-
+    
+    const [eyeShapeFeature, setEyeShapeFeature] = useState([])
+    const [eyeShapeEyeliner, setEyeShapeEyeliner] = useState([])
 
     const localEyeUser = localStorage.getItem("eye_user")
     const eyeUserObject = JSON.parse(localEyeUser)
@@ -60,6 +62,26 @@ export const Account = () => {
 
         }, [])
 
+    // useEffect(
+    //     () => {
+    //         fetch(`http://localhost:8088/eyeShapeFeatures?_expand=eyeShape&_embed=eyelinerBasedOnSelections`)
+    //             .then(response => response.json())
+    //             .then((eyelinerSelectionsArray) => {
+    //                 setEyeShapeEyeliner(eyelinerSelectionsArray)
+    //             })
+
+    //     }, [])
+
+        useEffect(
+            () => {
+                fetch(`http://localhost:8088/eyelinerEyeShapes?_expand=eyeShape&_expand=eyelinerStyle`)
+                    .then(response => response.json())
+                    .then((eyelinerEyeShapeSelectionsArray) => {
+                        setEyeShapeEyeliner(eyelinerEyeShapeSelectionsArray)
+                    })
+    
+            }, [])
+
 
 //& Get all of the Features
 
@@ -72,30 +94,31 @@ export const Account = () => {
         }
 
 
-    useEffect(
-        () => 
-            getAllFeaturesColors()
-           
-        , [])
+        useEffect(
+            () => 
+                getAllFeaturesColors()
+            
+            , [])
 
+
+        const getAllEyeShapeLiners = () => {
+            fetch(`http://localhost:8088/eyeShapeFeatures?_expand=eyeShape&_embed=eyelinerBasedOnSelections`)
+                .then(response => response.json())
+                .then((selectionsArray) => {
+                    setEyeShapeFeature(selectionsArray)
+                })
+        }
+
+        useEffect(
+            () => 
+                getAllEyeShapeLiners()
+               
+            , [])
 
 
 
     const deleteButton = (id) => {
         return <button onClick={() => {
-            //     selections.map((selection) => {
-            //     fetch(`http://localhost:8088/colorsBasedOnSelections/${selection.id}`, {
-            //     method: "DELETE",
-            // })
-            
-        
-            //     .then(() => { 
-                    
-            //         navigate("/eyeshadow_generator")
-                
-            //     })
-            
-        
         fetch(`http://localhost:8088/featuresSelections/${id}`, {
             method: "DELETE",
             header: {
@@ -105,7 +128,23 @@ export const Account = () => {
         .then(getAllFeaturesColors)
 
         }} 
-        className = "featuresDelete"> Delete Colors</button>
+        className = "featuresDelete"> Delete Color Profile</button>
+    }
+
+
+
+    const deleteEyelinerButton = (id) => {
+        return <button onClick={() => {
+        fetch(`http://localhost:8088/eyeShapeFeatures/${id}`, {
+            method: "DELETE",
+            header: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(getAllEyeShapeLiners)
+
+        }} 
+        className = "eyelinerDelete"> Delete Eyeliner Profile</button>
     }
         
 
@@ -138,11 +177,11 @@ export const Account = () => {
                                 <section className = "features_selected">
                                 <div className = "eye_color_feature">
                                     <h4> Facial Features</h4>
-                                    <label htmlFor = "eyeColor"> Eye Color: </label>
+                                    <label htmlFor = "eyeColor"> Your Eye Color: </label>
                                     {features.eyeColor?.color}
                                 </div>
                                 <div className ="undertone_feature">
-                                        <label htmlFor = "tone"> Undertone: </label>
+                                        <label htmlFor = "tone"> Your Undertone: </label>
                                         {features.tone?.tone}
                                 </div>
                                 </section>
@@ -154,9 +193,7 @@ export const Account = () => {
                                             features.colorsBasedOnSelections.map((eyeColorShadowId) => {
                                                 return eyeshadowEyeColors.map((color) => {
                                                     if (eyeColorShadowId.eyeshadowEyeColorId === color.id) {
-                                                        return (<div>{color.eyeshadowColor?.name
-                                                            }
-                                                            
+                                                        return (<div>{color.eyeshadowColor?.name}
                                                         </div>)
                                                     }
                                                 })
@@ -175,9 +212,45 @@ export const Account = () => {
 
                 })
                 }
-                </article>  
+                </article>
             </>
+            <>
                 
+                    {
+                        eyeShapeFeature.map((selected) => {
+                            if (selected.userId === eyeUserObject.id) 
+                            {
+                                return (
+                                    <div className = "eyeliner_eyeShape" >
+                                        <div className = "eyeShape"> 
+                                            <h4 className = "eyeliner_selections"> Eye Shape</h4>
+                                            <label htmlFor = "eyeShape"> Your Eye Shape: </label>
+                                            {selected.eyeShape?.shape}
+                                        </div>
+
+                                        <div className = "eyeliner_style"> 
+                                            <h4 className = "eyeliner"> Eyeliner Styles</h4>
+                                            {
+                                                selected.eyelinerBasedOnSelections.map((selectedEyeliner) => {
+                                                    return eyeShapeEyeliner.map((eyeliner) => {
+                                                        if(selectedEyeliner.eyelinerStyleId === eyeliner.id) {
+                                                            return (<div>{eyeliner.eyelinerStyle?.style}
+                                                                </div>)
+                                                        }
+                                                    })
+                                                })
+                                            }
+                                        </div>
+                                        
+                                            {deleteEyelinerButton(selected.id)}
+                                       
+                                        </div>
+                                    )
+                            }
+                        })
+                    }
+                
+            </>    
                 
            
             

@@ -5,15 +5,23 @@ import { Link } from "react-router-dom"
 
 export const Eyeliner = () => {
     const [eyeShapes, setEyeShapes] = useState([])
+
     const [eyelinerStyles, setEyelinerStyles] = useState([])
+
     const [eyelinerEyeShape, setEyelinerEyeShape] = useState([])
+
     const [filteredEyeliner, setFilteredEyeliner] = useState([])
+
     const [showEyeliner, setShowEyeliner] = useState(false)
+    
     const [selectedEyeliners, updateSelectedEyeliners] = useState(new Set())
+
     const [linerAndShapeId, updateLinerAndShapeId] = useState(0)
+
     const [eyeShapeFeatures, updateEyeShapeFeatures] = useState({
         "eyeShapeId": 0
     })
+
     const [eyeShapeFeaturesData, updateEyeShapeFeaturesData] = useState([])
 
     const localEyeUser = localStorage.getItem("eye_user")
@@ -62,43 +70,42 @@ export const Eyeliner = () => {
  
 
 
-        const handleSaveButtonClick = (event) => {
+    const handleSaveButtonClick = (event) => {
 
-            event.preventDefault()
-            
-            const featuresToSendToAPI = {
-                userId: parseInt(eyeUserObject.id),
-                eyeShapeId: parseInt(eyeShapeFeatures.eyeShapeId)
-            }
-    
-            
-            setShowEyeliner(true)
-    
-            return fetch(`http://localhost:8088/eyeShapeFeatures`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(featuresToSendToAPI)
-            })
-            .then(response => response.json())
-            .then((newFeatureThatWasCreated) => { 
-                updateLinerAndShapeId(newFeatureThatWasCreated.id)
-               
-            })
+        event.preventDefault()
+        
+        const featuresToSendToAPI = {
+            userId: parseInt(eyeUserObject.id),
+            eyeShapeId: parseInt(eyeShapeFeatures.eyeShapeId)
         }
+
+        
+        setShowEyeliner(true)
+
+        return fetch(`http://localhost:8088/eyeShapeFeatures`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(featuresToSendToAPI)
+        })
+        .then(response => response.json())
+        .then((newFeatureThatWasCreated) => { 
+            updateLinerAndShapeId(newFeatureThatWasCreated.id)
+            
+        })
+    }
 
 
 
         const eyelinerSaveButtonClick = (event) => {
 
-            event.preventDefault()
      
             const eyelinerArray = Array.from(selectedEyeliners)
              const promiseArray = eyelinerArray.map((eyelinerId) => {
                  const objectToPost = {
-                     "eyeShapeId": linerAndShapeId,
-                     "eyelinerId": eyelinerId
+                     "eyeShapeFeatureId": linerAndShapeId,
+                     "eyelinerStyleId": eyelinerId
                  }
                  return fetch(`http://localhost:8088/eyelinerBasedOnSelections`, {
                      method: "POST",
@@ -113,7 +120,7 @@ export const Eyeliner = () => {
                  .then((responseArray)=>{
                      setShowEyeliner(false)
                      updateEyeShapeFeatures({
-                         "eyeShapeId": 0,
+                         "eyeShapeFeatureId": 0,
                          
                      })
                  } )
