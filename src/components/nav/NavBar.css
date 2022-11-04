@@ -1,25 +1,29 @@
  .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: center;
+    justify-content: space-evenly;
+    background-color: #f8f8f2;
 }
 
 .navbar__item {
-    flex-basis: 20%;
+    flex-basis: 8%;
     list-style-type: none;
 }
 
-.navbar__logout {
-    margin-left: auto;
-}
 
 
   
   .navbar__item {
     text-decoration: none;
-    color: white;
+    color: rgb(7, 12, 11);
     font-size: 1.1rem;
-    margin-right: 5rem;
     padding: 6px 16px;
-    border-radius: 5px;
+    width:auto;
+    margin: 1%;
+    text-align: center
+  }
+
+  .navbar__item:hover {
+    background: #E2E9FF
   }

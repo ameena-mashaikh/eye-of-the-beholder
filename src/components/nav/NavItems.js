@@ -11,12 +11,6 @@ export const featureDropdown = [
       title: "Eye Shape",
       path: "./eyeShape_finder",
       cName: "submenu-item",
-    },
-    {
-      id: 3,
-      title: "Face Shape",
-      path: "./face_shape_finder",
-      cName: "submenu-item",
     }
 ]
 
@@ -30,14 +24,8 @@ export const eyesDropdown = [
   },
   {
     id: 2,
-    title: "Eyeshadow Styles",
-    path: "./eyeshadow_styles",
-    cName: "eye-makeup-submenu-item",
-  },
-  {
-    id: 3,
     title: "Eyeliner Styles",
-    path: "./eyeliner_styles",
+    path: "./eyeliner_generator",
     cName: "eye-makeup-submenu-item",
   }
 ]

@@ -1,0 +1,12 @@
+img.header_eye {
+    width: 50%;
+    height: 430px;
+    margin-left: -1%;
+  }
+
+.homepage_together {
+  background: rgba(0,0,0,0.74) none no-repeat scroll 0 0;
+  color: white;
+  width: 80%;
+  margin-top: 2%;
+}

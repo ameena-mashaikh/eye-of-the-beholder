@@ -8,7 +8,9 @@ export const UndertoneFinder = () => {
 
     const [undertones, setUndertones] = useState([])
 
-    const[showDiv, setShowDiv] = useState(false)
+    const[showDiv, setShowDiv] = useState(true)
+
+    const[undertoneTone, setUndertoneTone] = useState('');
 
     useEffect(
         () => {
@@ -32,36 +34,18 @@ export const UndertoneFinder = () => {
     )
 
 
-    const displayUndertone = (value) => {
-            setShowDiv(true)
-           //event.preventDefault()
-            //  undertones.map((undertone) => {
-            //     if (undertone.veinId === value && showDiv === true) {
-            //         return undertone.tone
-                    // (<div className = "undertone_color"> You Have a {undertone.tone} Undertone!</div>)
-                //}
-                // else {
-                    
-                // }
-            //})
-
-            let undertoneMatch = undertones.find((undertone) => undertone.veinId === value)
-                return <div>You Have a {undertoneMatch.tone} Undertone!</div>
-
-        }
-
-
     
     return (
+        <center>
         <section className="undertoneFinder">
             <h2 className="undertoneFinder__title">Undertone Finder</h2>
-            <img src={require("./undetonespngnew.png")} />
+            <img className = "undertoneImg" src={require("./undetonespngnew.png")} />
             <section className = "undertone__descriptions">
                 <article className = "Undertone__description">
                     <div>
                         <h3>Find Your Undertone!</h3>
                         <b>Veins</b>
-                            <div>A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
+                            <div className = "undertone_advice">A great way to find out your undertone is to look at your veins. Use the dropdown below to find out your undertone!</div>
                             
                             <label htmlFor="vein_label">What are the color of your veins?</label>
                             <div className = "select_option">
@@ -75,8 +59,13 @@ export const UndertoneFinder = () => {
                                     const valueParse = parseInt(event.target.value) 
                                     
                                     undertones.map((undertone) => {
-                                        if(undertone.veinId === valueParse)
-                                    {return <div>You Have a {undertone.tone} Undertone!</div>}
+                                        if(undertone.veinId === valueParse) {
+                                            setShowDiv(false);
+                                            setUndertoneTone(undertone.tone);
+                                        }
+                                        if(valueParse === 0) {
+                                            setShowDiv(true)
+                                        }
                                     })
                                 }
                                 }>
@@ -89,10 +78,11 @@ export const UndertoneFinder = () => {
                                     }
                                 
                             </select>
+                            <div className = "foundUndertone" hidden={showDiv}>You Have a {undertoneTone} Undertone!</div>
                             </div>
                     </div>
                 </article>
             </section>
-        </section>
+        </section></center>
     )
 }

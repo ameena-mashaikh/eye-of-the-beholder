@@ -1,23 +1,24 @@
 
 .services-submenu {
-    width: 145px;
+    width: 20.2%;
     position: absolute;
-    top: 43px;
+    margin-top: .3%;
     list-style: none;
-    right: 975px;
+    margin-left: -3%;
     text-align: center;
   }
   
   .services-submenu li {
-    background: rgb(0, 212, 212);
+    background: #E2E9FF;
     cursor: pointer;
-    text-align: center;
+    width: 45%;
+    margin-left: .5%;
   }
   
   .services-submenu li a:hover {
-    background: rgb(27, 46, 46);
+    background: rgb(201, 167, 198);
     text-align: center;
-    width: 115px
+    width: auto
     
   }
   
@@ -27,18 +28,16 @@
   
   .submenu-item {
     display: block;
-    width: 10rem;
-    height: 100%;
+    width: 20%;
     text-decoration: none;
-    color: white;
-    padding: 15px;
+    color: rgb(0, 0, 0);
 
     
   }
 
   .dropdown_select {
-    display: flex;
-    margin-left: 15px;
+    margin-right: 30%;
+    width: 40%;
 
 
   }
